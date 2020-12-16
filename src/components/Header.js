@@ -12,13 +12,13 @@ export default class Header extends React.Component {
                     </div>
                     <div className="header-right">
                         <Link to="/" className="link">
-                            <a>Page d'accueil</a>
+                            <span>Page d'accueil</span>
                         </Link>
                         <Link to="/play" className="link">
-                            <a>Scoreboard</a>
+                            <span>Scoreboard</span>
                         </Link>
                         <Link to="/play" className="link">
-                            <a>Commencer !</a>
+                            <span>Commencer !</span>
                         </Link>
                     </div>
                 </div>

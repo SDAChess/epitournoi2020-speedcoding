@@ -1,4 +1,3 @@
-import Terminal from "terminal-in-react";
 import React from "react";
 import CustomTerminal from "../components/CustomTerminal";
 import Countdown from "react-countdown";
@@ -25,7 +24,7 @@ export default class Console extends React.Component {
     render() {
         return (
             <div className="timer">
-                <Countdown date={0} renderer={this.renderer}>
+                <Countdown date={timestamp} renderer={this.renderer}>
                     <CustomTerminal className="terminal"/>
                 </Countdown>
 

@@ -26,7 +26,7 @@ export default class CustomTerminal extends React.Component {
                 commands={{
                     'sign-in': (args, print, runCommand) => {
                         const text = args.slice(1).join(' ');
-                        print('Enter Password:');
+                        print(text);
                     },
                     showmsg: this.showMsg,
                     popup: () => alert('Terminal in React'),

@@ -1,17 +1,15 @@
 import React, {Component} from 'react';
 import {Helmet} from 'react-helmet';
 import firebase from "firebase/app"
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {BrowserRouter as Router} from "react-router-dom";
 // eslint-disable-next-line no-unused-vars
 import styles from "./App.css"
-import {
-    FirebaseAuthProvider,
-} from "@react-firebase/auth";
 import {HomePage} from "./pages/HomePage";
 import Console from "./pages/Console";
 import AppRoute from "./layout/AppRoute";
 import DefaultLayout from "./layout/DefaultLayout";
 
+// eslint-disable-next-line no-unused-vars
 function sign_in(email, password) {
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then((user) => {
