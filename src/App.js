@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import firebase from "firebase/app";
 import {Helmet} from 'react-helmet';
-import "firebase/auth";
+import firebase from "@firebase"
 import {BrowserRouter as Router, Route} from "react-router-dom";
 // eslint-disable-next-line no-unused-vars
 import styles from "./App.css"
