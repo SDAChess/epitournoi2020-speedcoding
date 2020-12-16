@@ -1,38 +1,109 @@
-.App {
-  text-align: center;
+.application {
+    font-family: Lucida Console, Monaco, monospace;
+    font-style: bold;
+    font-size: 1em;
+    color: #14fdce;
+    text-decoration: none;
+    text-shadow: 0 .2rem 1rem #0c7b46;
+    grid-template-rows: auto;
+    height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    #safari {
+        background-color: #031E11
+    }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.fade {
+    animation: 0.4s ease-out fadeIn 1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
 }
 
-.App-link {
-  color: #61dafb;
+::selection {
+    background: #39f;
+    color: #fff;
+    text-shadow: none
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.h2 {
+    justify-content: left;
+    font-size: 0.83em;
+}
+
+
+.scanlines {
+    background: linear-gradient(180deg, hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, 0) 50%, rgba(0, 0, 0, .2) 70%, rgba(0, 0, 0, .6));
+    background-size: 100% .25rem;
+    z-index: -1
+}
+
+.timer {
+    display: flex;
+    font-size: 5em;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.countdown {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.link {
+    color: #14fdce;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+link:hover {
+    color: #059;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.glow, .scanlines {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none
+}
+
+.glow {
+    background: radial-gradient(circle at center, #1bd459 0, rgba(27, 212, 89, .88) 58%, rgba(21, 235, 92, .57) 80%, rgba(19, 94, 29, .27) 93%, rgba(10, 23, 12, 0) 100%);
+    opacity: .15
+}
+
+.header-upper-div {
+    display: flex;
+    width: 100%;
+}
+
+.header-left-div {
+    flex: 0 1 50%;
+    max-width: 75%;
+}
+
+.header-right {
+    flex: 0 1 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
