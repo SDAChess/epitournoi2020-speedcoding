@@ -1,2 +1,3 @@
-package-lock.json linguist-vendored
-package.json
+package-lock.json linguist-generated
+package.json linguist-generated
+
