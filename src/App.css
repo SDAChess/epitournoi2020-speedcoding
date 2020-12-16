@@ -48,9 +48,13 @@
     z-index: -1
 }
 
+.terminal {
+    font-size: 0.2em;
+}
+
 .timer {
     display: flex;
-    font-size: 5em;
+    font-size: 2.5em;
     flex: 1;
     flex-direction: column;
     align-items: center;
