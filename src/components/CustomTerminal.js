@@ -21,6 +21,7 @@ class CustomTerminal extends React.Component {
         this.state = {
             userName: props.userName === undefined ? "guest" : props.userName
         }
+        this.endTimeStamp = props.timeStamp
         this.ioplugin = undefined;
     }
 
@@ -231,7 +232,7 @@ class CustomTerminal extends React.Component {
                     },
                     'status': (args, print) => {
                         if (firebase.auth().currentUser) {
-                            const minutes = new Date(1608375600000) - Date.now();
+                            const minutes = new Date(this.endTimeStamp) - Date.now();
                             print(`Il vous reste ${Math.round(minutes / 1000 / 60)} minutes avant la fin de l'épreuve.`)
                             print(`Récupération des données de l'épreuve...`)
                             this.getExerciseCompletionData().then((validationData) => {

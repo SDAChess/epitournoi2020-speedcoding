@@ -7,11 +7,17 @@ import {FirestoreCollection} from "@react-firebase/firestore";
 
 require('firebase/auth')
 
-//const timestamp = 1608372000000;
-const timestamp = 1608252300000;
-const endTimeStamp = 1608252600000;
+const timestamp = 1608258360000;
+const endTimeStamp = 1608258420000;
 
 export default class Console extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isFinished: false
+        };
+    }
 
     fetchUser() {
         if (firebase.auth().currentUser) {
@@ -26,27 +32,13 @@ export default class Console extends React.Component {
     }
 
     renderer = ({days, hours, minutes, seconds, completed}) => {
-        if (completed) {
-            return (<></>)
-        } else
-            return (
-                <>
-                    <h2>Pas encore l'heure!</h2>
-                    <h3>Revenez dans :</h3>
-                    <span>{days} jours, {hours} heures, {minutes} minutes et {seconds} secondes</span>
-                </>
-            );
-    }
-
-
-    consoleRenderer = ({days, hours, minutes, seconds, completed}) => {
-        if (completed) {
+        if (this.state.isFinished) {
             return (<>
                 <h2>L'épreuve est terminée !</h2>
                 <h3>Merci d'avoir participé</h3>
             </>)
-        } else {
-            return (
+        } else if (completed) {
+            return (<>
                 <FirebaseAuthConsumer>
                     {({isSignedIn}) => {
                         if (isSignedIn === true && firebase.auth().currentUser.email) {
@@ -64,7 +56,8 @@ export default class Console extends React.Component {
                                                 }
                                             return (
                                                 <CustomTerminal className="terminal"
-                                                                userName={data.value[index].userName}/>
+                                                                userName={data.value[index].userName}
+                                                                timeStamp={endTimeStamp}/>
                                             );
                                         }
                                     }}
@@ -76,16 +69,32 @@ export default class Console extends React.Component {
                         }
                     }}
                 </FirebaseAuthConsumer>
-            );
+            </>)
+        } else  {
+            return (
+                <>
+                    <h2>Pas encore l'heure!</h2>
+                    <h3>Revenez dans :</h3>
+                    <span>{days} jours, {hours} heures, {minutes} minutes et {seconds} secondes</span>
+                </>
+            )
         }
+    }
+
+
+    consoleRenderer = ({days, hours, minutes, seconds, completed}) => {
+        if (completed) {
+            if(!this.state.isFinished)
+                this.setState({isFinished: true});
+        }
+        return (<></>)
     }
 
     render() {
         return (
             <div className="timer">
-                <Countdown date={timestamp} renderer={this.renderer}>
-                    <Countdown date={endTimeStamp} renderer={this.consoleRenderer}/>
-                </Countdown>
+                <Countdown date={endTimeStamp} renderer={this.consoleRenderer}/>
+                <Countdown date={timestamp} renderer={this.renderer}/>
             </div>
         );
     }
