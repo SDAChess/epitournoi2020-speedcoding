@@ -7,8 +7,8 @@ import {FirestoreCollection} from "@react-firebase/firestore";
 
 require('firebase/auth')
 
-const timestamp = 1608258660000;
-const endTimeStamp = 1608258960000;
+const timestamp = 1608372000000;
+const endTimeStamp = 1608375600000;
 
 export default class Console extends React.Component {
 
@@ -75,7 +75,7 @@ export default class Console extends React.Component {
                 <>
                     <h2>Pas encore l'heure!</h2>
                     <h3>Revenez dans :</h3>
-                    <span>{days} jours, {hours} heures, {minutes} minutes et {seconds} secondes</span>
+                    <span>{hours} heure{hours <= 1 ? "" : "s"}, {minutes} minute{minutes <= 1 ? "" : "s"} et {seconds} seconde{seconds <= 1 ? "" : "s"}</span>
                 </>
             )
         }

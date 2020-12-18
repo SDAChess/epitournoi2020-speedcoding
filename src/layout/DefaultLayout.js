@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Wrapper} from './Layouts';
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default class DefaultLayout extends React.Component {
 
@@ -15,6 +16,7 @@ export default class DefaultLayout extends React.Component {
             <Wrapper>
                 <Header/>
                 {this.children}
+                <Footer/>
             </Wrapper>);
     }
     static propTypes = {

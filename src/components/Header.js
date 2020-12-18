@@ -5,7 +5,6 @@ export default class Header extends React.Component {
     render() {
         return (
             <>
-
                 <div className="header-upper-div">
                     <div className="header-left-div">
                         <h1>Speed Coding</h1>

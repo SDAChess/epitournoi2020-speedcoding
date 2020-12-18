@@ -29,6 +29,11 @@
     }
 }
 
+.footer {
+    padding-top: 4em;
+    padding-bottom: 3em;
+}
+
 ::selection {
     background: #39f;
     color: #fff;
@@ -77,6 +82,12 @@
 
 link:hover {
     color: #059;
+}
+
+a {
+    color: #14fdce;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 a:hover {
