@@ -14,10 +14,10 @@ export default class Header extends React.Component {
                         <Link to="/" className="link">
                             <span>Page d'accueil</span>
                         </Link>
-                        <Link to="/play" className="link">
+                        <Link to="/solve" className="link">
                             <span>Scoreboard</span>
                         </Link>
-                        <Link to="/play" className="link">
+                        <Link to="/solve" className="link">
                             <span>Commencer !</span>
                         </Link>
                     </div>

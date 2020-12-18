@@ -1,6 +1,5 @@
 .application {
     font-family: Lucida Console, Monaco, monospace;
-    font-style: bold;
     font-size: 1em;
     color: #14fdce;
     text-decoration: none;
@@ -49,7 +48,10 @@
 }
 
 .terminal {
-    font-size: 0.2em;
+}
+
+.displaySubject b {
+    color: green;
 }
 
 .timer {
