@@ -37,6 +37,8 @@ class CustomTerminal extends React.Component {
                 case "auth/wrong-password":
                     print(<p style={{color: "red"}}>Mot de passe invalide</p>)
                     break;
+                default:
+                    break;
             }
         });
     }
