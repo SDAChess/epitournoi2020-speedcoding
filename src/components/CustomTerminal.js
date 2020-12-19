@@ -211,7 +211,7 @@ class CustomTerminal extends React.Component {
                             );
                         } else {
                             print(<div>
-                                Not bold then <b>Error!</b> then not bold.
+                                Usage : open fileName
                             </div>);
                         }
                     },
@@ -248,8 +248,10 @@ class CustomTerminal extends React.Component {
                                     if (validationData.exerciseDelay[i])
                                         print(`  Il faudra encore attendre ${Math.round(validationData.exerciseDelay[i])} secondes ` +
                                             "avant de pouvoir soumettre une nouvelle réponse au problème " + (i + 1))
-                                    else
+                                    else if (!validationData.validated[i])
                                         print("  Vous pouvez soumettre une réponse au problème " + (i + 1))
+                                    else
+                                        print("  Vous ne pouvez plus soumettre de réponse au problème " + (i + 1))
                                 }
                             })
                         } else {
@@ -261,11 +263,15 @@ class CustomTerminal extends React.Component {
                     }
                 }}
                 descriptions={{
-                    'open-google': 'opens google.com',
-                    alert: 'alert', popup: 'alert',
+                    'login': "Allows you to connect to the game server. Usage login email password",
                     'display': "Shows the content of a file.",
+                    'pull': "Pulls the exercices from the game server.",
+                    'submit': "Allows you to submit an answer to an exercice. Usage submit exNumber flag",
+                    'open': "Allows you to display the content of a file",
+                    'status': "Shows general information about the game status.",
+                    'logout': "Disconnects you from the game."
                 }}
-                msg='Bienvenue au Speed Coding EPITA, lisez le fichier README pour en savoir plus!'
+                msg="Bienvenue au Speed Coding EPITA, lisez la page d'accueil pour en savoir plus!"
             />
         )
     }

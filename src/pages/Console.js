@@ -7,7 +7,7 @@ import {FirestoreCollection} from "@react-firebase/firestore";
 
 require('firebase/auth')
 
-const timestamp = 1;// 1608372000000;
+const timestamp = 1608372000000;
 const endTimeStamp = 1608375600000;
 
 export default class Console extends React.Component {

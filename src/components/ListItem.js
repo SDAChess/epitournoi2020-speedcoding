@@ -21,7 +21,10 @@ class ListItem extends React.Component {
                     </div>
                     <div className="scoreboard-left-div">
                         <div className="last-submission">
-                            {`Finish time : ${this.finishTime}`}
+                            {`Finish time : ${
+                                this.finishTime === 0 ? "TDB" :
+                                    this.finishTime.getHours().toString() + "h" + this.finishTime.getMinutes().toString()}`
+                            }
                         </div>
                         <div className="completed-div">
                             {this.nbcompleted + "/" + this.total}

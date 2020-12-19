@@ -33,7 +33,6 @@ export class ScoreboardHandler extends React.Component {
                     .collection("exercices")
                     .get()
                 validationData.userName = (await db.collection("users").doc(email).get()).data().userName;
-                console.log(validationData.userName)
                 validationData.nbValidated = 0;
                 validationData.lastSubmit = 0;
                 validationData.validated = exercises.docs.map((doc) => {
@@ -46,8 +45,11 @@ export class ScoreboardHandler extends React.Component {
                 const finishTimes = exercises.docs.map((doc) => {
                     return (doc.data().validatedAt.toDate())
                 })
-                if(validationData.nbValidated === validationData.exerciseCount) {
+                validationData.finishTimes = finishTimes;
+                if (validationData.nbValidated === validationData.exerciseCount) {
                     validationData.validationTime = Math.max.apply(Math, finishTimes);
+                } else if (Date.now() > new Date(1608375600000)) {
+                    validationData.validationTime = new Date(1608375600000);
                 } else {
                     validationData.validationTime = 0;
                 }
@@ -58,9 +60,41 @@ export class ScoreboardHandler extends React.Component {
 
     sortValues(userDataList) {
         this.setState({
-            userValidationData: userDataList,
+            userValidationData: userDataList.sort((a, b) => this.sort(a, b)),
             isDataHandled: true
         })
+    }
+
+    sort(userDataA, userDataB) {
+        if (userDataA.nbValidated === userDataB.exerciseCount && userDataB.nbValidated === userDataB.exerciseCount) {
+            return userDataA.validationTime.getTime() - userDataB.validationTime.getTime();
+        } else {
+            if (userDataA.nbValidated < userDataB.nbValidated)
+                return 1
+            else if (userDataA.nbValidated > userDataB.nbValidated)
+                return -1
+            else
+                for (let i = userDataA.finishTimes.length - 1; i >= 0; i--) {
+                    if ((userDataA.finishTimes[i]).getTime() - (userDataB.finishTimes[i]).getTime() !== 0) {
+                        if (i === 2 || i === 1) {
+                            const p1Ta = (userDataA.finishTimes[1]).getTime();
+                            const p1Tb = (userDataB.finishTimes[1]).getTime();
+                            const p2Ta = (userDataA.finishTimes[2]).getTime();
+                            const p2Tb = (userDataB.finishTimes[2]).getTime();
+                            const mini = Math.min(p1Ta, p1Tb, p2Ta, p2Tb);
+                            if(mini === 1608256800000)
+                                return 0;
+                            if (mini === p1Ta || mini === p2Ta)
+                                return -1
+                            if (mini === p1Tb || mini === p2Tb)
+                                return 1
+                        }
+                        return (userDataA.finishTimes[i]).getTime() - (userDataB.finishTimes[i]).getTime()
+                    }
+                }
+
+        }
+        return 0;
     }
 
 
