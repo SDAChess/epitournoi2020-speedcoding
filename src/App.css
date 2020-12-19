@@ -53,6 +53,8 @@
 }
 
 .terminal {
+    flex: 1 auto;
+    font-size: 0.5em;
 }
 
 .displaySubject b {
@@ -89,6 +91,54 @@ a {
     text-decoration: none;
     cursor: pointer;
 }
+
+.scoreboard-left-div {
+    display: flex;
+    flex: 0 1 75%;
+    flex-direction: row;
+    border: solid;
+    justify-content: space-between;
+}
+
+.place-div {
+    flex: 1;
+    padding: 0.7em;
+    border: solid;
+}
+
+.last-submission {
+    flex: 0 1 auto;
+    padding: 0.7em;
+}
+
+.completed-div {
+    flex: 0 1 auto;
+    padding: 0.7em;
+}
+
+.position-div {
+    flex: 0 1 auto;
+    padding: 0.7em;
+}
+
+.list-item {
+    font-size: 0.5em;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+}
+
+.scoreboard {
+    margin-top: 3em;
+    display: flex;
+    font-size: 2.5em;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 
 a:hover {
     text-decoration: underline;

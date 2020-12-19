@@ -6,4 +6,5 @@ export const Wrapper = styled.div`
   display: flex;
   overflow: auto;
   flex-direction: column;
+  flex: 1;
 `;

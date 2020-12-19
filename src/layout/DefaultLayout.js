@@ -12,13 +12,15 @@ export default class DefaultLayout extends React.Component {
     }
 
     render() {
-        return (
-            <Wrapper>
-                <Header/>
-                {this.children}
-                <Footer/>
-            </Wrapper>);
+        return (<>
+                        <Wrapper>
+                            <Header/>
+                            {this.children}
+                            <Footer/>
+                        </Wrapper>
+                </>);
     }
+
     static propTypes = {
         children: PropTypes.element.isRequired,
     };

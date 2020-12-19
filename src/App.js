@@ -15,6 +15,7 @@ import AppRoute from "./layout/AppRoute";
 import DefaultLayout from "./layout/DefaultLayout";
 import {firebaseConfig} from "./config/firebaseConfig"
 import firebase from 'firebase'
+import Scoreboard from "./pages/Scoreboard";
 
 require('firebase/auth')
 
@@ -33,6 +34,7 @@ class App extends Component {
                         <Router>
                             <AppRoute exact path="/" component={HomePage} layout={DefaultLayout}/>
                             <AppRoute exact path="/solve" component={Console} layout={DefaultLayout}/>
+                            <AppRoute exact path="/scoreboard" component={Scoreboard} layout={DefaultLayout}/>
                         </Router>
                     </FirestoreProvider>
                 </FirebaseAuthProvider>

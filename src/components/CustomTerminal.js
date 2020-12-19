@@ -153,8 +153,10 @@ class CustomTerminal extends React.Component {
                 .doc(email)
                 .collection("exercices").get();
         for (let i = 0; i < exerciseList.length; i++) {
-            const parsedText = this.stringTemplateParser(
+            let parsedText = this.stringTemplateParser(
                 exerciseList[i].subject, inputs.docs[i].data().dataInputs);
+            parsedText = parsedText.replaceAll("\\t", "   ");
+            parsedText = parsedText.replaceAll('\\"', "\"");
             this.ioplugin.writeFileToDB("problem" + (i + 1), parsedText);
         }
     }
@@ -186,7 +188,7 @@ class CustomTerminal extends React.Component {
                 promptSymbol={
                     this.state.userName + "@epitournoi >"
                 }
-                style={{fontSize: "0.5em"}}
+                style={{fontSize: "0.5em", height: "85vh"}}
                 commands={{
                     'login': (args, print, runCommand) => {
                         if (args[1] && args[2]) {
